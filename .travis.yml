@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t NiniiGit/docker-react -f dockerfile.dev .
+  
+script: 
+  - docker run -e CI=true NiniiGit/docker-react npm run test  
